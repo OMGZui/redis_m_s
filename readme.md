@@ -5,10 +5,12 @@
 docker pull redis
 
 # 目录
+├── LICENSE
 ├── docker-compose.yml
 ├── master
 │   ├── Dockerfile
 │   └── redis.conf
+├── readme.md
 ├── redis.conf
 ├── slave1
 │   ├── Dockerfile
