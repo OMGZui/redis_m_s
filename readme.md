@@ -1,4 +1,33 @@
-# redis主从
+# redis 主从
+
+## 主库
+
+```bash
+bind 0.0.0.0
+daemonize no
+pidfile /var/run/redis.pid
+
+# 可选
+#requirepass root
+```
+
+## 从库
+
+```bash
+bind 0.0.0.0
+daemonize no
+pidfile /var/run/redis.pid
+
+replicaof master 6379
+
+# 主库设置了密码就得打开注释
+#masterauth root
+
+# 可选
+#requirepass root
+```
+
+## 使用
 
 ```bash
 # 拉取redis
