@@ -1,0 +1,34 @@
+version: "3"
+
+networks:
+  backend:
+    driver: bridge
+
+services:
+  master:
+    build:
+      context: "./master"
+    ports:
+      - 6300:6379
+    networks:
+      - backend
+
+  slave1:
+    build:
+      context: "./slave1"
+    ports:
+      - 6301:6379
+    depends_on:
+      - master
+    networks:
+      - backend
+
+  slave2:
+    build:
+      context: "./slave2"
+    ports:
+      - 6302:6379
+    depends_on:
+      - master
+    networks:
+      - backend
